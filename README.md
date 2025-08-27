@@ -28,7 +28,19 @@ python3 setup.py install
 
 ## Quick Usage
 
-TODO: Describe library overview in code
+Configure via `ape-config.yaml`:
+```yaml
+erpc: 
+  host: https://my-erpc.domain...
+```
+
+or `pyproject.toml`
+```toml
+[tool.ape.erpc] 
+host = "https://my-erpc.domain..." 
+```
+
+and then launch using any network combo your erpc instance supports via `--network <eco>:<net>:erpc`
 
 ## Development
 
