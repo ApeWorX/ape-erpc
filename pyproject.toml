@@ -20,7 +20,6 @@ include = '\.pyi?$'
 
 [tool.pytest.ini_options]
 addopts = """
-    -p no:ape_test
     --cov-branch
     --cov-report term
     --cov-report html
@@ -41,3 +40,9 @@ extend_skip = ["version.py"]
 
 [tool.mdformat]
 number = true
+
+# NOTE: So our tests work
+[tool.ape.ethereum]
+default_network = "sepolia"
+[tool.ape.ethereum.sepolia]
+default_provider = "erpc"

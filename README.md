@@ -29,18 +29,26 @@ python3 setup.py install
 ## Quick Usage
 
 Configure via `ape-config.yaml`:
+
 ```yaml
-erpc: 
+erpc:
   host: https://my-erpc.domain...
+  secret: "..." # NOTE: Omit if you don't have one
 ```
 
 or `pyproject.toml`
+
 ```toml
-[tool.ape.erpc] 
-host = "https://my-erpc.domain..." 
+[tool.ape.erpc]
+host = "https://my-erpc.domain..."
+secret = "..."  # NOTE: Omit if you don't have one
 ```
 
 and then launch using any network combo your erpc instance supports via `--network <eco>:<net>:erpc`
+
+```{note}
+You can also use `APE_ERPC_HOST=...` and `APE_ERPC_SECRET=...` to set config via environment variables
+```
 
 ## Development
 

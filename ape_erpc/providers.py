@@ -44,7 +44,15 @@ class ErpcProvider(Web3Provider, UpstreamProvider):
         return None
 
     def connect(self):
-        self._web3 = Web3(HTTPProvider(self.uri))
+        request_kwargs = dict()
+        if secret := self.config.secret:
+            request_kwargs["headers"] = {
+                "X-ERPC-Secret-Token": secret,
+                "Content-Type": "application/json",
+                **self.config_manager._get_request_headers(),
+            }
+
+        self._web3 = Web3(HTTPProvider(self.uri, request_kwargs=request_kwargs))
         is_poa = None
         try:
             # Any chain that *began* as PoA needs the middleware for pre-merge blocks
