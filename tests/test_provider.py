@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-from ape_erpc.providers import ErpcProvider
+from ape_erpc.provider import ErpcProvider
 
 
 def test_connection(chain):
