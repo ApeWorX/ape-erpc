@@ -12,7 +12,7 @@ def config_class():
 def providers():
     from evmchains import PUBLIC_CHAIN_META
 
-    from .providers import ErpcProvider
+    from .provider import ErpcProvider
 
     for ecosystem_name, network_info in PUBLIC_CHAIN_META.items():
         for network_name in network_info:
