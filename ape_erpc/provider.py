@@ -10,7 +10,9 @@ from web3.middleware.validation import MAX_EXTRADATA_LENGTH
 try:
     from web3.middleware import ExtraDataToPOAMiddleware  # type: ignore
 except ImportError:
-    from web3.middleware import geth_poa_middleware as ExtraDataToPOAMiddleware  # type: ignore
+    from web3.middleware import (
+        geth_poa_middleware as ExtraDataToPOAMiddleware,  # type: ignore  # noqa: N812
+    )
 
 if TYPE_CHECKING:
     from .config import ErpcConfig
@@ -44,7 +46,7 @@ class ErpcProvider(Web3Provider, UpstreamProvider):
         return None
 
     def connect(self):
-        request_kwargs = dict()
+        request_kwargs = {}
         if secret := self.config.secret:
             request_kwargs["headers"] = {
                 "X-ERPC-Secret-Token": secret,
