@@ -8,11 +8,9 @@ from web3.gas_strategies.rpc import rpc_gas_price_strategy
 from web3.middleware.validation import MAX_EXTRADATA_LENGTH
 
 try:
-    from web3.middleware import ExtraDataToPOAMiddleware  # type: ignore
+    from web3.middleware import ExtraDataToPOAMiddleware  # type: ignore[attr-defined, no-redef]
 except ImportError:
-    from web3.middleware import (
-        geth_poa_middleware as ExtraDataToPOAMiddleware,  # type: ignore  # noqa: N812
-    )
+    from web3.middleware import geth_poa_middleware as ExtraDataToPOAMiddleware  # type: ignore[attr-defined, no-redef]  # noqa: N812
 
 if TYPE_CHECKING:
     from .config import ErpcConfig
