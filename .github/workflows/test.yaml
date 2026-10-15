@@ -73,6 +73,9 @@ jobs:
 
         - name: Run Tests
           run: uv run ape test -m "not fuzzing" -s --cov=ape_erpc -n auto
+          env:
+            APE_ERPC_HOST: ${{ secrets.APE_ERPC_HOST }}
+            APE_ERPC_SECRET: ${{ secrets.APE_ERPC_SECRET }}
 
 # NOTE: uncomment this block after you've marked tests with @pytest.mark.fuzzing
 #    fuzzing:
